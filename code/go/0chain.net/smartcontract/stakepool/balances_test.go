@@ -146,6 +146,12 @@ func (tb *testBalances) AddMint(*state.Mint) error                   { return ni
 func (tb *testBalances) GetTransfers() []*state.Transfer             { return nil }
 func (tb *testBalances) GetMagicBlock(round int64) *block.MagicBlock { return nil }
 func (tb *testBalances) SetMagicBlock(block *block.MagicBlock)       {}
+
+func (tb *testBalances) GetMagicBlockNoOffset(round int64) *block.MagicBlock    { return nil }
+func (tb *testBalances) SetBlockMagicBlock(block *block.MagicBlock)             {}
+func (tb *testBalances) GetMinerNonce(minerID datastore.Key) (int64, error)     { return 0, nil }
+func (tb *testBalances) SetMinerNonce(minerID datastore.Key, nonce int64) error { return nil }
+
 func (tb *testBalances) AddSignedTransfer(st *state.SignedTransfer)  {}
 func (tb *testBalances) GetSignedTransfers() []*state.SignedTransfer { return nil }
 func (tb *testBalances) GetEventDB() *event.EventDb                  { return nil }
